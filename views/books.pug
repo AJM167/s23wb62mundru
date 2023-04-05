@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  - var books=[{books_type:"thriller",books_year:"2021",books_price:60},{books_type:"love",car_year:"2023",books_price:250},{books_type:"horrer",books_year:"2019",books_price:380}]
+  div(class="container-fluid")
+   div(class="row")
+     each z,index  in books
+     div(class="col-sm-2" onclick =`buy(${index})`) #{z.books_type}, #{z.books_year}, #{z.books_price}
+
+    script.
+        function buy(a)
+        {
+            alert(`You purchased Item ${a+1}`)
+        }
